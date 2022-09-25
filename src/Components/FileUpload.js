@@ -1,0 +1,53 @@
+import React, { useState } from 'react';
+
+
+
+const FileUploadComponent = () => {
+
+	const [textArea, setTextArea] = useState("");
+	const [blogTitle, setBlogTitle] = useState("");
+
+	const handleTextAreaChange = (e) => {
+		setTextArea(e.target.value);
+	};
+
+	const handleTitleChange = (e) => {
+		setBlogTitle(e.target.value);
+	}
+
+	const handleBlogSubmit = (e) => {
+			fetch('http://localhost:3001/editor', {
+				method: 'post',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify ({
+					textArea: textArea,
+					blogTitle: blogTitle,
+				}),	
+			})
+			.then((response)=> {
+				if (response.status === 400) {
+					 return alert('There was an error')
+				} else {
+					alert('Title and Blog were submited')
+				}
+
+			})
+	
+	}
+	console.log(document.cookie)
+	return (
+			<div className="home file-upload-container">
+                    <form className="contact-form" onSubmit={handleBlogSubmit}>
+                        <h3>Blog Upload!</h3>
+                        <p>Please Enter Your blog and You Must *Add an image</p>
+                        <label className="title">Blog Title: </label>
+        				<input onChange={handleTitleChange} className="textbox" type="textbox" placeholder="creative name here" value={blogTitle} />
+                        <textarea value={textArea} onChange={handleTextAreaChange} rows="10" cols="60"/>
+                        {/*<input {...register("picture")} name="picture"  type="file" />*/}
+                        <input className="button" type="submit" value="Upload Blog" />
+                    </form>
+            </div>
+		);
+}
+
+export default FileUploadComponent;
