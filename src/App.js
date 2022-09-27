@@ -93,9 +93,9 @@ const App = () => {
         </div>   
         <div className="socialDiv">
             <h1>Social Media</h1>
-            <a href="https://www.instagram.com/macstract/?hl=af" target="_blank" style={{ textDecoration: 'none', color: 'papayawhip' }}> Instagram: Mactract </a>
-            <a href="https://www.linkedin.com/in/superior-minds-ink-869565207/" target="_blank" style={{ textDecoration: 'none', color: 'papayawhip' }}> Linkdein: Christain Mcbride </a>
-            <a href="https://www.youtube.com/channel/UCBHFh0ZVLkxTvwoYW3hLZ9Q/featured" target="_blank" style={{ textDecoration: 'none', color: 'papayawhip' }}> Youtube: Mad Mac </a>    
+            <a href="https://www.instagram.com/macstract/?hl=af" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Instagram: Mactract </a>
+            <a href="https://www.linkedin.com/in/superior-minds-ink-869565207/" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Linkdein: Christain Mcbride </a>
+            <a href="https://www.youtube.com/channel/UCBHFh0ZVLkxTvwoYW3hLZ9Q/featured" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Youtube: Mad Mac </a>    
         </div>         
       </Router>
     </div>
