@@ -16,7 +16,7 @@ const FileUploadComponent = () => {
 	}
 
 	const handleBlogSubmit = (e) => {
-			fetch('http://localhost:3001/editor', {
+			fetch('https://smblogserver.herokuapp.com/editor', {
 				method: 'post',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify ({
