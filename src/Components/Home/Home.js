@@ -11,12 +11,12 @@ const Home = ( {Link} ) => {
 	blogTitle: "Welcome To Blog City"}
 	
 	]);
-	useEffect(()=> {
+	useEffect((blogs)=> {
 		axios.get('https://smblogserver.herokuapp.com/blogs')
     	.then((response)=>{
     	setBlogsList(response.data);
      	})
-	},[])
+	},[blogs])
 	
 	return (
 	<div className="home">

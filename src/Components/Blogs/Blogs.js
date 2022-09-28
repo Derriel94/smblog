@@ -29,13 +29,13 @@ const displayBlogs = blogs.slice(pagesVisited, pagesVisited + blogsPerPage).map(
 
 
  // fetch('http://localhost:3001/blogs')
- useEffect(()=> {
+ useEffect((blogs)=> {
  	axios.get('https://smblogserver.herokuapp.com/blogs')
     .then((response)=>{
     	setBlogsList(response.data);
     	return response;
      })
-}, [])
+}, [blogs])
 	
 const pageCount = Math.ceil(blogs.length / blogsPerPage);
 const changePage = ({selected}) => {
