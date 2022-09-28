@@ -9,14 +9,13 @@ const Home = ( {Link} ) => {
 	{textId: 0,
 	textArea: "This is a story all about how my life got twisted and turned upside down",
 	blogTitle: "Welcome To Blog City"}
-	
 	]);
-	useEffect((blogs)=> {
+	useEffect(()=> {
 		axios.get('https://smblogserver.herokuapp.com/blogs')
     	.then((response)=>{
     	setBlogsList(response.data);
      	})
-	},[blogs])
+	},[])
 	
 	return (
 	<div className="home">

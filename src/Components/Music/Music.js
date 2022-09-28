@@ -11,9 +11,9 @@ const Music = () => {
 			height="400px" 
 			src="https://www.youtube.com/embed/jmO790wl-s8" 
 			title="YouTube video player" 
-			frameborder="0" 
+			frameBorder="0" 
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-			allowfullscreen>
+			allowFullscreen>
 			</iframe>
 		</div>
 		);
