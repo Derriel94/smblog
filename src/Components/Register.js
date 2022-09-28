@@ -15,7 +15,7 @@ const Register = (  ) => {
 
 
   const onSubmitRegister = (e) => {
-    fetch('http://localhost:3001/register', {
+    fetch('https://smblogserver.herokuapp.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

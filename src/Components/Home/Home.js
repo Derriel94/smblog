@@ -12,7 +12,7 @@ const Home = ( {Link} ) => {
 	
 	]);
 	useEffect(()=> {
-		axios.get('http://localhost:3001/blogs')
+		axios.get('https://smblogserver.herokuapp.com/blogs')
     	.then((response)=>{
     	setBlogsList(response.data);
      	})
