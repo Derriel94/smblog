@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from 'react';
 import "./Blogs.css";
-import axios from 'axios';
 import ReactPaginate from "react-paginate";
 
 
@@ -24,13 +23,13 @@ const displayBlogs = blogs.slice(pagesVisited, pagesVisited + blogsPerPage).map(
 
 
  // fetch('http://localhost:3001/blogs')
- useEffect(()=> {
- 	axios.get('https://smblogserver.herokuapp.com/blogs')
-    .then((response)=>{
-    	setBlogsList(response.data);
-    	return response;
-     })
-}, [])
+//  useEffect(()=> {
+//  	axios.get('https://smblogserver.herokuapp.com/blogs')
+//     .then((response)=>{
+//     	setBlogsList(response.data);
+//     	return response;
+//      })
+// }, [])
 	
 const pageCount = Math.ceil(blogs.length / blogsPerPage);
 const changePage = ({selected}) => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Axios from 'axios';
+import axios from 'axios';
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; 
 import Home from "./Components/Home/Home.js"; 
@@ -16,7 +16,7 @@ import Contact from "./Components/Contact/Contact.js";
 const App = () => {
   var data = sessionStorage.getItem("key");
 
-  Axios.defaults.withCredetials = true;
+  axios.defaults.withCredetials = true;
   const [blogs, setBlogsList] = useState([
   {textId: 0,
   textArea: "This is a story all about how my life got twisted and turned upside down",
