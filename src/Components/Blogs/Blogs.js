@@ -4,7 +4,7 @@ import ReactPaginate from "react-paginate";
 
 
 
-const Blogs = (blogs) => {
+const Blogs = ( {blogs} ) => {
 
 const [pageNumber, setPageNumber] = useState(0);
 const blogsPerPage = 1;
