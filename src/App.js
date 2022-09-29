@@ -17,7 +17,13 @@ const App = () => {
   var data = sessionStorage.getItem("key");
 
   Axios.defaults.withCredetials = true;
+  const [blogs, setBlogsList] = useState([
+  {textId: 0,
+  textArea: "This is a story all about how my life got twisted and turned upside down",
+  blogTitle: "Welcome To Blog City"}
+  ]);
 
+  
   const [user, setUser] = useState({
     userId: '',
     name: '',
@@ -61,7 +67,12 @@ const App = () => {
 
 
   },)
- 
+  useEffect(()=> {
+    axios.get('https://smblogserver.herokuapp.com/blogs')
+      .then((response)=>{
+      setBlogsList(response.data);
+      })
+  },[])
  
   return (
     <div className="App" style={{color: "papayawhip"}}>
@@ -78,8 +89,8 @@ const App = () => {
         </div>
         <Nav /> 
           <Routes>
-            <Route exact path="/" element={<Home Link={Link}/>} />
-            <Route path="/blogs" element={<Blogs />} />
+            <Route exact path="/" element={<Home Link={Link} blogs={blogs}/>} />
+            <Route path="/blogs" element={<Blogs blogs={blogs} />} />
             <Route path="/editor" element={<Editor />} />
             <Route path="/music" element={<Music />} />
             <Route path="/voiceovers" element={<VoiceOver />} />

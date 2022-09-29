@@ -5,12 +5,7 @@ import ReactPaginate from "react-paginate";
 
 
 
-const Blogs = () => {
-const [blogs, setBlogsList] = useState([
-	{textId: 0,
-	textArea: "This is a story all about how my life got twisted and turned upside down",
-	blogTitle: "Welcome To Blog City"}
-	]);
+const Blogs = (blogs) => {
 
 const [pageNumber, setPageNumber] = useState(0);
 const blogsPerPage = 1;

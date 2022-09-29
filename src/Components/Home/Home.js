@@ -4,19 +4,8 @@ import axios from 'axios';
 
 
 
-const Home = ( {Link} ) => {
-	const [blogs, setBlogsList] = useState([
-	{textId: 0,
-	textArea: "This is a story all about how my life got twisted and turned upside down",
-	blogTitle: "Welcome To Blog City"}
-	]);
-	useEffect(()=> {
-		axios.get('https://smblogserver.herokuapp.com/blogs')
-    	.then((response)=>{
-    	setBlogsList(response.data);
-     	})
-	},[])
-	
+const Home = ( {Link, blogs} ) => {
+
 	return (
 	<div className="home">
 		<div className="sidebar">
