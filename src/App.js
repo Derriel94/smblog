@@ -66,9 +66,13 @@ const App = () => {
     }
 
 
-  },)
+  },[isLoggedIn])
+
   useEffect(()=> {
-    axios.get('https://smblogserver.herokuapp.com/blogs')
+    fetch('https://smblogserver.herokuapp.com/blogs', {
+      method: 'get',
+      headers: {'Content-Type': 'application/json'}
+      })
       .then((response)=>{
       setBlogsList(response.data);
       })
