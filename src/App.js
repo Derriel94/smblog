@@ -74,7 +74,8 @@ const App = () => {
       headers: {'Content-Type': 'application/json'}
       })
       .then((response)=>{
-      setBlogsList(response.data);
+        console.log(response);
+      //setBlogsList(response);
       })
   },[])
  
