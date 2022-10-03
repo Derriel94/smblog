@@ -76,7 +76,7 @@ const App = () => {
         const response = await fetch(apiUrl)
         const json = response.json();
          console.log(json);
-          if (json){
+          if (typeof(json) != "undefinded"){
           return setBlogsList(json);
           } else {
           alert("the blogs arnt loading")
@@ -88,7 +88,7 @@ const App = () => {
      }
   
      fetchData();
-
+     console.log(blogs);
       //setBlogsList(response);
 
   },[])
