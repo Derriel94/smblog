@@ -21,7 +21,13 @@ const App = () => {
   const [blogs, setBlogsList] = useState([
   {textId: 0,
   textArea: "This is a story all about how my life got twisted and turned upside down",
-  blogTitle: "Welcome To Blog City"}
+  blogTitle: "Welcome To Blog City",
+  textId: 1,
+  textArea: "This is a story all about how my life got twisted and turned upside down",
+  blogTitle: "Welcome To Blog City",
+  textId: 2,
+  textArea: "This is a story all about how my life got twisted and turned upside down",
+  blogTitle: "Welcome To Blog City",}
   ]);
 
   
