@@ -74,10 +74,13 @@ const App = () => {
       try {
         const apiUrl = 'https://smblogserver.herokuapp.com/blogs';
         const response = await fetch(apiUrl)
-        const json = response.json().then((json)=>{
+        const json = response.json();
+          if (json){
           return setBlogsList(json);
-        })
-
+          } else {
+          alert("the blogs arnt loading")
+          return;
+          }
       } catch (error) {
         console.log(error);
       }
