@@ -83,12 +83,15 @@ const App = () => {
         const json = response.json();
          console.log(json);
           if (typeof(json) != "undefinded"){
+            console.log('here1');
           return setBlogsList(json);
           } else {
+            console.log('here2');
           alert("the blogs arnt loading")
           return;
           }
       } catch (error) {
+        console.log('here3');
         console.log(error);
       }
      }
