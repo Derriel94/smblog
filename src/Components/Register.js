@@ -14,7 +14,7 @@ const Register = (  ) => {
   const onNameChange = (e) => {setName(e.target.value)};
 
 
-  const onSubmitRegister = (e) => {
+  const onSubmitRegister = () => {
     fetch('https://smblogserver.herokuapp.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -29,7 +29,6 @@ const Register = (  ) => {
         response.json()
         if (response.status === 400){
           alert('You did not finish your login creditials. Refresh page and start over!')
-          window.location.reload(true);
           navigate("/register");
         //try event default here
         } else if (response.status === 200) {

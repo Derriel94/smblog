@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; 
+import {Routes, Route, Link, useNavigate } from "react-router-dom"; 
 import Home from "./Components/Home/Home.js"; 
 import Register from "./Components/Register.js";
 import Signin from "./Components/Signin.js";  
@@ -17,6 +17,7 @@ const App = () => {
   var data = sessionStorage.getItem("key");
 
   axios.defaults.withCredetials = true;
+  const navigate = useNavigate();
   const [blogs, setBlogsList] = useState([
   {textId: 0,
   textArea: "This is a story all about how my life got twisted and turned upside down",
@@ -50,7 +51,7 @@ const App = () => {
     })
     sessionStorage.removeItem("key");
     setIsLoggedIn('false')
-    window.location.reload(true);
+    navigate("/signin")
   } 
 
   const registerRef = useRef();
@@ -59,8 +60,8 @@ const App = () => {
         setIsLoggedIn(true)
       }
   },[data])
-  useEffect(()=> {
 
+  useEffect(()=> {
      if (isLoggedIn) {
         registerRef.current.style.display = "none";
     }
@@ -69,24 +70,33 @@ const App = () => {
   },[isLoggedIn])
 
   useEffect(()=> {
-    fetch('https://smblogserver.herokuapp.com/blogs', {
-      method: 'get',
-      headers: {'Content-Type': 'application/json'}
-      })
-      .then((response)=>{
-        console.log(response);
+     const fetchData = async()=> {
+      try {
+        const apiUrl = 'https://smblogserver.herokuapp.com/blogs';
+        const response = await fetch(apiUrl)
+        const json = response.json().then((json)=>{
+          return setBlogsList(json);
+        })
+
+      } catch (error) {
+        console.log(error);
+      }
+     }
+  
+     fetchData();
+
       //setBlogsList(response);
-      })
+
   },[])
  
   return (
-    <div className="App" style={{color: "papayawhip"}}>
-      <Router>
+      <div className="App" style={{color: "papayawhip"}}>
+        
         <div className="header-container">
            <div><Link to="/" style={{color: "papayawhip", marginLeft: "160px"}}>Superior Minds</Link></div>
             {data
             ?
-              <p onClick={()=>signOutUser(user)} id="signout">SignOut: {data}</p>
+              <p onClick={()=>signOutUser(data)} id="signout">SignOut: {data}</p>
             :
               <Link to="/signin" style={{color: "papayawhip"}}><p id="signin">SignIn</p></Link>
             }
@@ -112,8 +122,8 @@ const App = () => {
             <a href="https://www.instagram.com/macstract/?hl=af" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Instagram: Mactract </a>
             <a href="https://www.linkedin.com/in/superior-minds-ink-869565207/" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Linkdein: Christain Mcbride </a>
             <a href="https://www.youtube.com/channel/UCBHFh0ZVLkxTvwoYW3hLZ9Q/featured" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Youtube: Mad Mac </a>    
-        </div>         
-      </Router>
+        </div>      
+         
     </div>
   );
 };

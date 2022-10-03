@@ -13,32 +13,74 @@ const Signin = ( {loadUser, isLoggedIn} ) => {
   const onPasswordChange = (e) => {setPassword(e.target.value)};
 
 
-  const onSubmitSignIn = () => {
+  const onSubmitSignIn = async() => {
+    const settings = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        })
+    };
 
-    Axios.post('https://smblogserver.herokuapp.com/signin',{ 
-        email: email,
-        password: password,
-    })
-    .then(res => {
-      if (res.message) {
-        alert('Wrong Creditials Fool!');
-        navigate("/signin");
-      } else if (res.data[0].name === "ChrisMac" && res.data[0].userId === 1){
-       alert(`${res.data[0].name} You are the Leader lets Go Blog and will be logged out if you leave the site`);
-       loadUser(res.data[0])
-        sessionStorage.setItem("key", res.data[0].name);
+    try {
+      const apiUrl = 'https://smblogserver.herokuapp.com/signin';
+      const response = await fetch(apiUrl, settings);
+      const responseData = await response.json();
+    
+      if (responseData.err) {
+        console.log(responseData)
+        alert(responseData.err); 
+        return responseData;
+      }
+        
+         alert(`${responseData[0].name} You are the Leader lets Go Blog and will be logged out if you leave the site`);
+         loadUser(responseData[0]);
+         sessionStorage.setItem("key", responseData[0].name);
          navigate("/editor")
-       console.log(res.data[0].name);
-     } else if (res.data[0].name !== "ChrisMac" && res.data[0].userId) {
-        alert(`${res.data[0].name} you are signed In and will be logged out if you leave the site`);
-        loadUser(res.data[0])
-         navigate("/blogs");
-     }
-    }) 
+         return responseData;
+      // const json = response.json().then((json)=>{
+      //   if (json.err) {
+      //     console.log(json)
+      //     alert(json.err); 
+      //     return ;
+      //   }
+      //   console.log(json)
+        
+       
+      // })
+
+    } catch (err) {
+        console.log(err);
+        alert("Wrong Password Combo, try again!"); 
+    }
+    // Axios.post('http://localhost:3001/signin',{ 
+    //     email: email,
+    //     password: password,
+    // })
+    // .then(res => {
+    //     console.log(res);
+    //   if (res.message) {
+    //     alert('Wrong Creditials Fool!');
+    //     navigate("/signin");
+    //   } else if (res.data[0].name === "ChrisMac" && res.data[0].userId === 1){
+    //    alert(`${res.data[0].name} You are the Leader lets Go Blog and will be logged out if you leave the site`);
+    //    loadUser(res.data[0])
+    //     sessionStorage.setItem("key", res.data[0].name);
+    //      navigate("/editor")
+    //    console.log(res.data[0].name);
+    //  } else if (res.data[0].name !== "ChrisMac" && res.data[0].userId) {
+    //     alert(`${res.data[0].name} you are signed In and will be logged out if you leave the site`);
+    //     loadUser(res.data[0])
+    //      navigate("/blogs");
+    //  }
+    // }) 
   }
 
   
-console.log(document.cookie)
 
   return(
         <div className="home signInUpBox">
