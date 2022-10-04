@@ -21,13 +21,15 @@ const App = () => {
   const [blogs, setBlogsList] = useState([
   {textId: 0,
   textArea: "This is a story all about how my life got twisted and turned upside down",
-  blogTitle: "Welcome To Blog City",
-  textId: 1,
-  textArea: "This is a story all about how my life got twisted and turned upside down",
-  blogTitle: "Welcome To Blog City",
-  textId: 2,
-  textArea: "This is a story all about how my life got twisted and turned upside down",
-  blogTitle: "Welcome To Blog City",}
+  blogTitle: "Welcome To Blog City"
+  },
+  {textId: 1,
+  textArea: "This is a story all about how my life got  upside down",
+  blogTitle: "Where tha white women at dawg"
+  },
+  {textId: 2,
+  textArea: "This is a story all about how my got twisted and turned upside down",
+  blogTitle: "Welcome My guy"}
   ]);
 
   
@@ -80,18 +82,18 @@ const App = () => {
       try {
         const apiUrl = 'https://smblogserver.herokuapp.com/blogs';
         const response = await fetch(apiUrl)
-        const json = response.json();
+        const json = await response.json();
          console.log(json);
-          if (typeof(json) != "undefinded"){
-            console.log('here1');
-          return setBlogsList(json);
-          } else {
+          if (json.error){
             console.log('here2');
-          alert("the blogs arnt loading")
-          return;
+            alert("the blogs arnt loading")
+            return;
+          } else {
+            console.log('here1');
+            return setBlogsList(json);
           }
       } catch (error) {
-        console.log('here3');
+        alert('Big error call support!')
         console.log(error);
       }
      }
