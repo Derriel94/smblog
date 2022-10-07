@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
-
-const FileUploadComponent = () => {
+const FileUploadComponent = ({ isLoggedIn }) => {
 
 	const [textArea, setTextArea] = useState("");
 	const [blogTitle, setBlogTitle] = useState("");
+	const navigate = useNavigate();
 
 	const handleTextAreaChange = (e) => {
 		setTextArea(e.target.value);
@@ -37,6 +38,7 @@ const FileUploadComponent = () => {
 	console.log(document.cookie)
 	return (
 			<div className="home file-upload-container">
+					{ !isLoggedIn ? navigate('/') :  navigate('/editor') }
                     <form className="contact-form" onSubmit={handleBlogSubmit}>
                         <h3>Blog Upload!</h3>
                         <p>Please Enter Your blog and You Must *Add an image</p>

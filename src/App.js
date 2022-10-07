@@ -108,25 +108,25 @@ const App = () => {
       <div className="App" style={{color: "papayawhip"}}>
         
         <div className="header-container">
-           <div><Link to="/" style={{color: "papayawhip", marginLeft: "160px"}}>Superior Minds</Link></div>
-            {data
+           <div><Link to="/" style={{color: "papayawhip", marginLeft: "160px"}}>Logo</Link></div>
+           <div>Superior Minds Ink.</div>
+            {isLoggedIn
             ?
               <p onClick={()=>signOutUser(data)} id="signout">SignOut: {data}</p>
             :
-              <Link to="/signin" style={{color: "papayawhip"}}><p id="signin">SignIn</p></Link>
+              <div><a href=" https://linktr.ee/MadMac21" target="_blank" rel="noreferrer" id="fiverLink"style={{fontSize: "1.3rem"}}> platforms </a></div>
             }
-            <Link to="/contact" style={{color: "papayawhip"}}><p id="register" ref={registerRef}>Register</p></Link> 
         </div>
-        <Nav /> 
+          <Nav /> 
           <Routes>
             <Route exact path="/" element={<Home Link={Link} blogs={blogs}/>} />
             <Route path="/blogs" element={<Blogs blogs={blogs} />} />
-            <Route path="/editor" element={<Editor />} />
+            <Route path="/editor" element={<Editor isLoggedIn={isLoggedIn} />} />
             <Route path="/music" element={<Music />} />
             <Route path="/voiceovers" element={<VoiceOver />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/signin" element={<Signin loadUser={loadUser} isLoggedIn={isLoggedIn} />} />       
+            <Route path={"/ " + process.env.Sec} element={<Signin loadUser={loadUser} isLoggedIn={isLoggedIn} />} />       
           </Routes> 
         <div className="footer">
           <Link to="/" style={{color: "papayawhip"}}><h1>Superior Minds</h1></Link>
@@ -134,9 +134,10 @@ const App = () => {
         </div>   
         <div className="socialDiv">
             <h1>Social Media</h1>
-            <a href="https://www.instagram.com/macstract/?hl=af" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Instagram: Mactract </a>
-            <a href="https://www.linkedin.com/in/superior-minds-ink-869565207/" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Linkdein: Christain Mcbride </a>
-            <a href="https://www.youtube.com/channel/UCBHFh0ZVLkxTvwoYW3hLZ9Q/featured" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Youtube: Mad Mac </a>    
+            <div><a href=" https://linktr.ee/MadMac21" target="_blank" rel="noreferrer"> LinkTree </a></div>
+            <div><a href="https://www.instagram.com/macstract/?hl=af" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Instagram: Mactract </a></div>
+            <div><a href="https://www.linkedin.com/in/superior-minds-ink-869565207/" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Linkdein: Christain Mcbride </a></div>
+            <div><a href="https://www.youtube.com/channel/UCBHFh0ZVLkxTvwoYW3hLZ9Q/featured" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'papayawhip' }}> Youtube: Mad Mac </a></div>
         </div>      
          
     </div>

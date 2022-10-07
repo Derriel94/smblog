@@ -73,6 +73,11 @@ html,body {
     left: 100px;
   }
 }
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 .header-container div {
   font-size: 3rem;
   text-shadow: 2px 2px #664c19;
@@ -267,5 +272,37 @@ html,body {
   grid-area: soc;
   display: flex;
   flex-direction: column;
+  
 
+}
+.socialDiv > div >a {
+  text-decoration: none;
+  color: papayawhip;
+}
+.socialDiv > div>a:hover {
+  margin: 10px;
+  cursor: pointer;
+  border-bottom: 2px solid #664c19;
+}
+
+.topOfPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+#fiverLink {
+  color: #664c19;
+  text-decoration: none;
+}
+
+#fiverLink:hover {
+  color: papayawhip;
+  text-decoration: underline;
+}
+.blackBox {
+  background: rgba(0, 0, 0, .7);
+  border: #664c19 ridge 3px;
+  border-radius: 20px;
+  width: 450px;
 }
