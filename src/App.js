@@ -15,7 +15,7 @@ import Contact from "./Components/Contact/Contact.js";
 
 const App = () => {
   var data = sessionStorage.getItem("key");
-  const path = process.env.Sec;
+  const path = process.env.SEC;
   axios.defaults.withCredetials = true;
   const navigate = useNavigate();
   const [blogs, setBlogsList] = useState([
@@ -126,7 +126,7 @@ const App = () => {
             <Route path="/voiceovers" element={<VoiceOver />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/register" element={<Register />} />
-            <Route path={"/"+path} element={<Signin loadUser={loadUser} isLoggedIn={isLoggedIn} />} />       
+            <Route path={path} element={<Signin loadUser={loadUser} isLoggedIn={isLoggedIn} />} />       
           </Routes> 
         <div className="footer">
           <Link to="/" style={{color: "papayawhip"}}><h1>Superior Minds</h1></Link>
