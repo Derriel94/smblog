@@ -39,7 +39,7 @@ const FileUploadComponent = ({ isLoggedIn }) => {
 		if (!isLoggedIn) {
 			navigate('/')
 		} else {
-			navigate('editor')
+			navigate('/editor')
 		}
 
 	},[isLoggedIn])
