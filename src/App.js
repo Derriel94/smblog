@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./App.css";
 import {Routes, Route, Link, useNavigate } from "react-router-dom"; 
@@ -62,20 +62,13 @@ const App = () => {
     navigate("/signin")
   } 
 
-  const registerRef = useRef();
+
   useEffect(()=> {
       if (data){
         setIsLoggedIn(true)
       }
   },[data])
 
-  useEffect(()=> {
-     if (isLoggedIn) {
-        registerRef.current.style.display = "none";
-    }
-
-
-  },[isLoggedIn])
 
   useEffect(()=> {
      const fetchData = async()=> {
