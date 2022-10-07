@@ -35,10 +35,18 @@ const FileUploadComponent = ({ isLoggedIn }) => {
 			})
 	
 	}
-	console.log(document.cookie)
+	useEffect(()=> {
+		if (!isLoggedIn) {
+			navigate('/')
+		} else {
+			navigate('editor')
+		}
+
+	},[isLoggedIn])
+
 	return (
 			<div className="home file-upload-container">
-					{ !isLoggedIn ? navigate('/') :  navigate('/editor') }
+					
                     <form className="contact-form" onSubmit={handleBlogSubmit}>
                         <h3>Blog Upload!</h3>
                         <p>Please Enter Your blog and You Must *Add an image</p>

@@ -59,7 +59,7 @@ const App = () => {
     })
     sessionStorage.removeItem("key");
     setIsLoggedIn('false')
-    navigate("/signin")
+    navigate("/")
   } 
 
 
