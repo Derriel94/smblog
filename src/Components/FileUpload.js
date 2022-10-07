@@ -45,17 +45,16 @@ const FileUploadComponent = ({ isLoggedIn }) => {
 	},[isLoggedIn])
 
 	return (
-			<div className="home file-upload-container">
-					
-                    <form className="contact-form" onSubmit={handleBlogSubmit}>
+			<div className="home file-upload-container">		
+                    <div className="contact-form" onSubmit={handleBlogSubmit}>
                         <h3>Blog Upload!</h3>
-                        <p>Please Enter Your blog and You Must *Add an image</p>
+                        <p>Please Enter Your blog!</p>
                         <label className="title">Blog Title: </label>
         				<input onChange={handleTitleChange} className="textbox" type="textbox" placeholder="creative name here" value={blogTitle} />
                         <textarea value={textArea} onChange={handleTextAreaChange} rows="10" cols="60"/>
                         {/*<input {...register("picture")} name="picture"  type="file" />*/}
-                        <input className="button" type="submit" value="Upload Blog" />
-                    </form>
+                        <button className="button" onClick={handleBlogSubmit}>Upload Blog</button>
+                    </div>
             </div>
 		);
 }

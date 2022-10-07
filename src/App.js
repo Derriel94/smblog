@@ -65,7 +65,10 @@ const App = () => {
 
   useEffect(()=> {
       if (data){
-        setIsLoggedIn(true)
+        setIsLoggedIn('true')
+      } else {
+        signOutUser(data);
+
       }
   },[data])
 
