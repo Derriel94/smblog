@@ -36,10 +36,10 @@ const FileUploadComponent = ({ isLoggedIn }) => {
 	
 	}
 	useEffect(()=> {
-		if (!isLoggedIn) {
-			navigate('/')
-		} else {
+		if (isLoggedIn) {
 			navigate('/editor')
+		} else {
+			navigate('/')
 		}
 
 	},[isLoggedIn])
