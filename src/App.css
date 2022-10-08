@@ -193,7 +193,7 @@ html,body {
   grid-area: sidebar;
 }
 .sidebar img {
-  max-width: 100%;
+  width: 350px;
   height: auto;
   border: 2px papayawhip solid;
   border-radius: 20px;

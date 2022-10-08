@@ -10,7 +10,7 @@ const Home = ( {Link, blogs} ) => {
 	<div className="home">
 		<div className="sidebar">
 				<h1>About Mac</h1>
-				<img src="./logo.png" alt="mac"/>
+				<img src="./mac.png" alt="mac"/>
 				<p>My name is Christian McBride, I am an audiobook producer and narrator. This will be my 2nd year producing audiobooks I love what I do. I'm also an editorial intern for whatstrending.com writing is a passion of mine and I look to continually expand my talents in this direction. I look forward to not only meeting other writers and voice artists but grow with a team as well.</p>
 		</div>
 		<div className="main">
