@@ -10,13 +10,13 @@ const Contact = () => {
 
 	return(
 		<div className="home Contact">
-			<h1 className="musicTitle">My Rates and Request!</h1>
+			<h1 className="alilSmaller">My Rates and Request!</h1>
 			<div className="topOfPage">
 				<div className="blackBox">
 					<h2 style={{color: "#664c19"}}>Different Packages</h2>
-						<ul>
-							<li>55$ to 150$ Packages For ACX Standards</li>
+						<ul className="alilbigger">
 							<li>5$ Per 50 Words</li>
+							<li>If the s riot is past 2500 words message me for a custom order and we will negotiate pricing</li>
 						</ul>
 						<h2>A little about MY Audio Journey</h2>
 						<p>Good day mates! I am Mad Mac creative artist. 
@@ -56,8 +56,8 @@ const Contact = () => {
 				</div>
 			</div>
 			 <form className="contact-form" action="https://formsubmit.co/chrismacbuff35@gmail.com" method="POST">
-				<label className="" htmlFor="email-address">Enter Email</label>
-              	<input onChange={onEmailChange} className="" value={email} name="email-address"  id="email-address" />
+				<label htmlFor="email-address">Enter Email</label>
+              	<input onChange={onEmailChange}  value={email} name="email-address"  id="email-address" />
 				<p>Leave me a message if you want to work, colab etc.</p>
 				<textarea value={textArea} onChange={handleTextAreaChange} rows="10" cols="60"/>
 				<button type="submit" value="submit">SendEmail</button>

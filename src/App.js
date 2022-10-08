@@ -47,7 +47,7 @@ const App = () => {
       email: user.email,
     });
     
-    setIsLoggedIn('true');
+    setIsLoggedIn(true);
     // window.location.reload(true);
   }
 
@@ -58,14 +58,14 @@ const App = () => {
       email: ''
     })
     sessionStorage.removeItem("key");
-    setIsLoggedIn('false')
+    setIsLoggedIn(false)
     navigate("/")
   } 
 
 
   useEffect(()=> {
       if (data){
-        setIsLoggedIn('true')
+        setIsLoggedIn(true)
       } else {
         signOutUser(data);
 
@@ -104,7 +104,7 @@ const App = () => {
       <div className="App" style={{color: "papayawhip"}}>
         
         <div className="header-container">
-           <div><Link to="/" style={{color: "papayawhip", marginLeft: "160px"}}>Logo</Link></div>
+           <div><Link to="/" style={{color: "papayawhip"}}><img src="./2.jpg" className="logo"/></Link></div>
            <div>Superior Minds Ink.</div>
             {isLoggedIn
             ?

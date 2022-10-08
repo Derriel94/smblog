@@ -16,7 +16,7 @@ const Home = ( {Link, blogs} ) => {
 		<div className="main">
 			<h1>Most Recent Blog</h1>
 			<h3>{blogs[blogs.length - 1].blogTitle}</h3>
-				<img src="./logo.png" alt="mac"/>
+				<img src="./1.jpg" alt="mac"/>
 			<p>{blogs[blogs.length -1 ].textArea}</p>
 		</div>
 		<div className="video">

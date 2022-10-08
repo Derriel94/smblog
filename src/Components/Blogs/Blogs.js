@@ -14,7 +14,7 @@ const pagesVisited = pageNumber * blogsPerPage;
 const displayBlogs = blogs.slice(pagesVisited, pagesVisited + blogsPerPage).map(blog =>{
 	return (
 			<div className="blog" key={blog.textId}>
-				<img src="./logo.png" alt="mac"/>			
+				<img src="./1.jpg" alt="mac"/>			
 				<h1> {blog.blogTitle} </h1>
 				<div> {blog.textArea} </div>
 			</div>

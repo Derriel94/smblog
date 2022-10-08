@@ -4,6 +4,7 @@ html,body {
   height: auto;
   width:  100%;
   background: linear-gradient(to bottom right, black, rgba(255, 255, 255, 1.0));
+  text-align: center;
 }
 .App {
   text-align: center;
@@ -31,13 +32,33 @@ html,body {
   "footer"
   "soc";
   grid-gap: .3rem;
+  margin-left: auto;
+  margin-right: auto;
   }
+  .nav,.blackBox,.footer,.Contact,.header-container,.music {
+    font-size: smaller;
+  }.home {
+    max-width: auto;
+  }
+  .alilSmaller {
+    font-size: 1.4rem;
 }
+
+}
+
+
 .header-container {
   grid-area: header;
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.logo {
+   height: 300px;
+  width: auto;
+  border: solid #bb8b2d 3px;
+  border-radius: 20px;
 }
 #signin {
   padding: 20px;
@@ -128,7 +149,7 @@ html,body {
 @media only screen and (max-width: 550px) {
   .home {
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr .5fr .5fr;
   grid-template-areas: 
   "main"
   "video"
@@ -158,8 +179,9 @@ html,body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
+
+
+  text-align: center;
 }
 
 .sidebar {
@@ -190,7 +212,7 @@ html,body {
 }
 
 .main img {
-  max-width: 350px;
+  width: 400px;
   height: auto;
   border: 2px papayawhip solid;
   border-radius: 20px;
@@ -211,6 +233,7 @@ html,body {
     height: 350px;
     width: 350px;
   }
+  
 
 }
 .footer {
@@ -263,7 +286,8 @@ html,body {
 .contact-form {
   display: flex;
   flex-direction: column;
-  width: 450px;
+ 
+ 
   margin-left: auto;
   margin-right: auto;
 }
@@ -305,4 +329,8 @@ html,body {
   border: #664c19 ridge 3px;
   border-radius: 20px;
   width: 450px;
+}
+
+.alilbigger {
+  font-size: 1.1rem;
 }
