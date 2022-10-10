@@ -1,10 +1,10 @@
-html,body {
+body {
   margin: 0;
   padding: 0;
  /* height: auto;
   width:  100%;*/
-  background: linear-gradient(to bottom right, black, rgba(255, 255, 255, 1.0));
-  text-align: center;
+  /*background: linear-gradient(to bottom right, black, rgba(255, 255, 255, 1.0));*/
+    background: rgba(0, 0, 0, .85);
 }
 .App {
   text-align: center;
@@ -21,30 +21,7 @@ html,body {
   grid-gap: .3rem;
   position: relative;
 }
-@media only screen and (max-width: 550px) {
-  .App {
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.3fr 1fr 1fr 1fr;
-  grid-template-areas: 
-  "header"
-  "nav"
-  "home"
-  "footer"
-  "soc";
-  grid-gap: .3rem;
-  margin-left: auto;
-  margin-right: auto;
-  }
-  .nav,.blackBox,.footer,.Contact,.header-container,.music {
-    font-size: smaller;
-  }.home {
-    max-width: auto;
-  }
-  .alilSmaller {
-    font-size: 1.4rem;
-}
 
-}
 
 
 .header-container {
@@ -151,7 +128,7 @@ html,body {
 @media only screen and (max-width: 550px) {
   .home {
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr .5fr .5fr;
+  grid-template-rows: .8fr .5fr .5fr;
   grid-template-areas: 
   "main"
   "video"
@@ -181,8 +158,7 @@ html,body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-
-
+  width:  100vw;
   text-align: center;
 }
 
@@ -202,8 +178,8 @@ html,body {
 }
 
 .main {
-  background: linear-gradient(to bottom right, white, black);
-  grid-area: main;
+/*  background: linear-gradient(to bottom right, white, black);
+*/  grid-area: main;
   border-radius: 20px;
   width: 100%;
 }
@@ -230,8 +206,15 @@ html,body {
     width: 95%;
     height: auto;
   }
-  }
+}
+
 .video iframe {
+  height: 350px;
+  width: 600px;
+  border: #bb8b2d solid 3px;
+  border-radius: 20px;
+}
+.music iframe {
   height: 350px;
   width: 600px;
   border: #bb8b2d solid 3px;
@@ -242,6 +225,13 @@ html,body {
   .video iframe {
     height: 350px;
     width: 350px;
+  }
+  .music iframe {
+      height: 350px;
+      width: 95%;
+  }
+  .blackBox {
+    width: 100%;
   }
   
 
@@ -268,9 +258,12 @@ html,body {
   display: inline-flex;
  
 }/* Created with https://www.css-gradient.com */
-.file-upload-container {
+.blogUpload {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width:  100vw;
+  text-align: center;
 }
 
 .signInUpBox {
@@ -296,8 +289,6 @@ html,body {
 .contact-form {
   display: flex;
   flex-direction: column;
- 
- 
   margin-left: auto;
   margin-right: auto;
 }
@@ -343,4 +334,35 @@ html,body {
 
 .alilbigger {
   font-size: 1.1rem;
+}
+@media only screen and (max-width: 550px) {
+  .App {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.3fr 1fr 1fr 1fr;
+  grid-template-areas: 
+  "header"
+  "nav"
+  "home"
+  "footer"
+  "soc";
+  grid-gap: .3rem;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  .nav,.blackBox,.footer,.Contact,.header-container,.music,.blogUpload {
+    font-size: smaller;
+    
+  }
+  .home {
+    max-width: 100%;
+  }.Contact,.blogUpload  {
+    max-width:  100%;
+  }
+  .alilSmaller {
+    font-size: 1.4rem;
+  }
+  .contact-form {
+    width: 100%;
+  }
+
 }

@@ -10,8 +10,19 @@ const [pageNumber, setPageNumber] = useState(0);
 const blogsPerPage = 1;
 const pagesVisited = pageNumber * blogsPerPage;
 // const starRef = useRef();
-
-const displayBlogs = blogs.slice(pagesVisited, pagesVisited + blogsPerPage).map(blog =>{
+let [keyword, setKeyword] = useState('');
+const handleChange = (e) => {
+			setKeyword(e.target.value);	
+	}
+const displayBlogs = blogs.filter((blog)=>{
+						if(keyword == "") {
+							return blog
+						} else if (blog.blogTitle.toLowerCase().includes(keyword.toLowerCase())
+								   || 
+								   blog.textArea.toLowerCase().includes(keyword.toLowerCase())) {
+							return blog
+						}
+					}).slice(pagesVisited, pagesVisited + blogsPerPage).map(blog =>{
 	return (
 			<div className="blog" key={blog.textId}>
 				<img src="./1.jpg" alt="mac"/>			
@@ -31,7 +42,7 @@ const displayBlogs = blogs.slice(pagesVisited, pagesVisited + blogsPerPage).map(
 //      })
 // }, [])
 	
-const pageCount = Math.ceil(blogs.length / blogsPerPage);
+let pageCount = Math.ceil(blogs.length / blogsPerPage);
 const changePage = ({selected}) => {
 	setPageNumber(selected);
 }
@@ -40,6 +51,8 @@ const changePage = ({selected}) => {
 		<div className="home blogs-container">
 		<div className="ad"> </div>
 			<div className="mainBlogger">
+			<p>Enter keyword</p>
+			<input type="text" name="keyword" onChange={handleChange} />
 				{displayBlogs}
 				<ReactPaginate
 				  previousLabel={"<"}

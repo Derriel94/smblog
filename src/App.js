@@ -121,12 +121,12 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home Link={Link} blogs={blogs}/>} />
             <Route path="/blogs" element={<Blogs blogs={blogs} />} />
-            <Route path="/editor" element={<Editor isLoggedIn={isLoggedIn} />} />
+            <Route path="/editor" element={<Editor isLoggedIn={isLoggedIn} blogs={blogs} />} />
             <Route path="/music" element={<Music />} />
             <Route path="/voiceovers" element={<VoiceOver />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/secretthothblogspot" element={<Signin loadUser={loadUser} isLoggedIn={isLoggedIn} />} />       
+            <Route path="/secretthothblogspot" element={<Signin loadUser={loadUser} />} />       
           </Routes> 
         <div className="footer">
           <Link to="/" style={{color: "papayawhip"}}><h1>Superior Minds</h1></Link>
