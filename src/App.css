@@ -1,8 +1,8 @@
 html,body {
   margin: 0;
   padding: 0;
-  height: auto;
-  width:  100%;
+ /* height: auto;
+  width:  100%;*/
   background: linear-gradient(to bottom right, black, rgba(255, 255, 255, 1.0));
   text-align: center;
 }
@@ -55,7 +55,7 @@ html,body {
 }
 
 .logo {
-   height: 300px;
+  height: 300px;
   width: auto;
   border: solid #bb8b2d 3px;
   border-radius: 20px;
@@ -108,6 +108,9 @@ html,body {
   .header-container div {
     font-size: 2rem;
   }
+  .header-container img {
+    max-width: 95%;
+  }
 }
 .nav {
   display: flex;
@@ -137,7 +140,6 @@ html,body {
 /*  background: linear-gradient(to bottom right, rgba(83, 177, 210, 1.0), rgba(255, 255, 255, 1.0));
 */ grid-area: home;
   height: auto;
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -189,7 +191,7 @@ html,body {
 /*background: #bb8b2d*/
   border-radius: 20px;
   padding:  10px;
-  background: linear-gradient(to bottom right, #664c19, #bb8b2d);
+  /*background: linear-gradient(to bottom right, #664c19, #bb8b2d);*/
   grid-area: sidebar;
 }
 .sidebar img {
@@ -199,16 +201,11 @@ html,body {
   border-radius: 20px;
 }
 
-@media only screen and (max-width: 550px) {
-  .sidebar img {
-    width: 50%;
-    height: auto;
-  }
-  }
 .main {
-  background: linear-gradient(to bottom right, #bb8b2d, #664c19);
+  background: linear-gradient(to bottom right, white, black);
   grid-area: main;
   border-radius: 20px;
+  width: 100%;
 }
 
 .main img {
@@ -220,12 +217,25 @@ html,body {
 .video {
   grid-area: video;
   border-radius: 20px;
-  background: linear-gradient(to bottom right, #bb8b2d, #664c19);
+/*  background: linear-gradient(to bottom right, #bb8b2d, #664c19);*/
 
 }
+
+@media only screen and (max-width: 550px) {
+  .sidebar img {
+    width: 50%;
+    height: auto;
+  }
+  .main img {
+    width: 95%;
+    height: auto;
+  }
+  }
 .video iframe {
-/*  height: 350px;
-  width: 350px;*/
+  height: 350px;
+  width: 600px;
+  border: #bb8b2d solid 3px;
+  border-radius: 20px;
 }
 
 @media only screen and (max-width: 550px) {
@@ -316,7 +326,7 @@ html,body {
 
 }
 #fiverLink {
-  color: #664c19;
+  color: #bb8b2d;
   text-decoration: none;
 }
 

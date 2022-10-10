@@ -4,7 +4,7 @@ import Axios from 'axios';
 //import './Signin.css';
 
 
-const Signin = ( {loadUser, isLoggedIn} ) => {
+const Signin = ( {loadUser} ) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,13 +35,14 @@ const Signin = ( {loadUser, isLoggedIn} ) => {
         console.log(responseData)
         alert(responseData.err); 
         return responseData;
-      }
+      } else {
         
          alert(`${responseData[0].name} You are the Leader lets Go Blog and will be logged out if you leave the site`);
          loadUser(responseData[0]);
          sessionStorage.setItem("key", responseData[0].name);
          navigate("/editor")
          return responseData;
+      }
       // const json = response.json().then((json)=>{
       //   if (json.err) {
       //     console.log(json)

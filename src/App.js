@@ -7,15 +7,15 @@ import Register from "./Components/Register.js";
 import Signin from "./Components/Signin.js";  
 import Blogs from "./Components/Blogs/Blogs.js";
 import Nav from "./Components/Nav/Nav.js"; 
-import Editor from "./Components/FileUpload.js";
+import Editor from "./Components/Editor.js";
 import Music from "./Components/Music/Music.js";
 import VoiceOver from "./Components/VoiceOver/VoiceOver.js";
 import Contact from "./Components/Contact/Contact.js";
 
 
 const App = () => {
-  var data = sessionStorage.getItem("key");
   
+  var sessionName = sessionStorage.getItem("key");
   axios.defaults.withCredetials = true;
   const navigate = useNavigate();
   const [blogs, setBlogsList] = useState([
@@ -39,19 +39,21 @@ const App = () => {
     email: ''
   });
  
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const loadUser = (user) => {
     setUser({
       userId: user.userId,
       name: user.name,
       email: user.email,
     });
+
     
+
     setIsLoggedIn(true);
     // window.location.reload(true);
   }
 
-  const signOutUser = (user) => {
+  const signOutUser = () => {
     setUser({
       userId: '',
       name: '',
@@ -62,15 +64,17 @@ const App = () => {
     navigate("/")
   } 
 
-
+// this useEffect is to monitor if we have a name coming from
+// the session of the browser.
+// May not need this useEffect anymore
   useEffect(()=> {
-      if (data){
-        setIsLoggedIn(true)
+      if (sessionName){
+        setIsLoggedIn(true);
       } else {
-        signOutUser(data);
+        setIsLoggedIn(false);
 
       }
-  },[data])
+  },[])
 
 
   useEffect(()=> {
@@ -99,7 +103,7 @@ const App = () => {
       //setBlogsList(response);
 
   },[])
- 
+  console.log(isLoggedIn)
   return (
       <div className="App" style={{color: "papayawhip"}}>
         
@@ -108,7 +112,7 @@ const App = () => {
            <div>Superior Minds Ink.</div>
             {isLoggedIn
             ?
-              <p onClick={()=>signOutUser(data)} id="signout">SignOut: {data}</p>
+              <p onClick={()=>signOutUser()} id="signout">SignOut: {sessionName}</p>
             :
               <div><a href=" https://linktr.ee/MadMac21" target="_blank" rel="noreferrer" id="fiverLink"style={{fontSize: "1.3rem"}}> platforms </a></div>
             }
@@ -127,7 +131,7 @@ const App = () => {
         <div className="footer">
           <Link to="/" style={{color: "papayawhip"}}><h1>Superior Minds</h1></Link>
           <Nav />
-        </div>   
+        </div>
         <div className="socialDiv">
             <h1>Social Media</h1>
             <div><a href=" https://linktr.ee/MadMac21" target="_blank" rel="noreferrer"> LinkTree </a></div>

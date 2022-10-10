@@ -9,11 +9,11 @@
 }
 .mainBlogger {
   background: linear-gradient(to top left, #664c19, #bb8b2d);
-
+  width: 550px;
   border-radius: 20px;
 }
 .mainBlogger img {
-  width: 390px;
+  width: 450px;
   height: auto;
   border: 2px papayawhip solid;
   border-radius: 20px;
@@ -58,3 +58,10 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width: 550px) {
+  .mainBlogger img {
+    width: 95%;
+    height: auto;
+  }
+
+  }

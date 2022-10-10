@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
-const FileUploadComponent = ({ isLoggedIn }) => {
+const Editor = ({ isLoggedIn }) => {
 
 	const [textArea, setTextArea] = useState("");
 	const [blogTitle, setBlogTitle] = useState("");
@@ -36,10 +36,11 @@ const FileUploadComponent = ({ isLoggedIn }) => {
 	
 	}
 	useEffect(()=> {
-		if (isLoggedIn) {
-			navigate('/editor')
-		} else {
+		if (!isLoggedIn) {
 			navigate('/')
+		} else {
+			navigate('/editor')
+			
 		}
 
 	},[isLoggedIn])
@@ -59,4 +60,4 @@ const FileUploadComponent = ({ isLoggedIn }) => {
 		);
 }
 
-export default FileUploadComponent;
+export default Editor;
