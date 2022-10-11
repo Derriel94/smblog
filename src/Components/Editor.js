@@ -55,7 +55,7 @@ const Editor = ({ isLoggedIn, blogs }) => {
 			<div className="blog" key={blog.textId}>		
 				<h1> {blog.blogTitle} </h1>
 				<div> {blog.textArea} </div>
-				<button onClick={()=>{deleteBlog(blog.textId)}}>Delete Post</button>
+				<button onClick={()=>{deleteBlog(blog.textId, blog.blogTitle)}}>Delete Post</button>
 			</div>
 				);
 	});
@@ -63,12 +63,12 @@ const Editor = ({ isLoggedIn, blogs }) => {
 
 	// Delete Button Logic
 
-	 async function deleteBlog(textId) {
+	 async function deleteBlog(textId, blogTitle) {
       let response = await fetch(`https://smblogserver.herokuapp.com/delete/${textId}`, { method: 'DELETE' });
-       alert('Delete successful');
-       setTimeout(()=>{
+       alert(`Deleted Post Name ${blogTitle}`);
+      
        	window.location.reload();
-       }, 1000)
+      
        return response;
         
     }
