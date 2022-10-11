@@ -66,6 +66,9 @@ const Editor = ({ isLoggedIn, blogs }) => {
 	 async function deleteBlog(textId) {
       let response = await fetch(`https://smblogserver.herokuapp.com/delete/${textId}`, { method: 'DELETE' });
        alert('Delete successful');
+       setTimeout(()=>{
+       	window.location.reload();
+       }, 1000)
        return response;
         
     }
