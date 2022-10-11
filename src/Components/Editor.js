@@ -64,8 +64,10 @@ const Editor = ({ isLoggedIn, blogs }) => {
 	// Delete Button Logic
 
 	 async function deleteBlog(textId) {
-        await fetch(`https://smblogserver.herokuapp.com/delete/${textId}`, { method: 'DELETE' });
-        alert('Delete successful');
+      let response = await fetch(`https://smblogserver.herokuapp.com/delete/${textId}`, { method: 'DELETE' });
+       alert('Delete successful');
+       return response;
+        
     }
 
 	useEffect(()=> {
