@@ -80,7 +80,7 @@ const App = () => {
   useEffect(()=> {
      const fetchData = async()=> {
       try {
-        const apiUrl = 'https://smblogserver.herokuapp.com/blogs';
+        const apiUrl = 'http://smbserver3-env.eba-swxmxpht.us-east-1.elasticbeanstalk.com/blogs';
         const response = await fetch(apiUrl)
         const json = await response.json();
          console.log(json);

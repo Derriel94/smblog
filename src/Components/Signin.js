@@ -27,7 +27,7 @@ const Signin = ( {loadUser} ) => {
     };
 
     try {
-      const apiUrl = 'https://smblogserver.herokuapp.com/signin';
+      const apiUrl = 'http://smbserver3-env.eba-swxmxpht.us-east-1.elasticbeanstalk.com/signin';
       const response = await fetch(apiUrl, settings);
       const responseData = await response.json();
     

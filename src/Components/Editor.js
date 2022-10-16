@@ -21,7 +21,7 @@ const Editor = ({ isLoggedIn, blogs }) => {
 	}
 
 	const handleBlogSubmit = (e) => {
-			fetch('https://smblogserver.herokuapp.com/editor', {
+			fetch('http://smbserver3-env.eba-swxmxpht.us-east-1.elasticbeanstalk.com/editor', {
 				method: 'post',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify ({
