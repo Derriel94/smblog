@@ -15,7 +15,7 @@ const Register = (  ) => {
 
 
   const onSubmitRegister = () => {
-    fetch('https://smbserver3-env.eba-swxmxpht.us-east-1.elasticbeanstalk.com/register', {
+    fetch('https://smblogserver.herokuapp.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
