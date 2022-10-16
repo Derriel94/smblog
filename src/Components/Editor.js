@@ -21,7 +21,7 @@ const Editor = ({ isLoggedIn, blogs }) => {
 	}
 
 	const handleBlogSubmit = (e) => {
-			fetch('http://smbserver3-env.eba-swxmxpht.us-east-1.elasticbeanstalk.com/editor', {
+			fetch('https://smbserver3-env.eba-swxmxpht.us-east-1.elasticbeanstalk.com/editor', {
 				method: 'post',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify ({
@@ -64,7 +64,7 @@ const Editor = ({ isLoggedIn, blogs }) => {
 	// Delete Button Logic
 
 	 async function deleteBlog(textId, blogTitle) {
-      let response = await fetch(`https://smblogserver.herokuapp.com/delete/${textId}`, { method: 'DELETE' });
+      let response = await fetch(`https://smbserver3-env.eba-swxmxpht.us-east-1.elasticbeanstalk.com/delete/${textId}`, { method: 'DELETE' });
        alert(`Deleted Post Name ${blogTitle}`);
       
        	window.location.reload();
